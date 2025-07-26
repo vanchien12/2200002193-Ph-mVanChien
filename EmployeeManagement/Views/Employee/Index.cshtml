@@ -1,0 +1,65 @@
+@model IEnumerable<EmployeeManagement.Models.Employee>
+
+    @{
+    ViewData["Title"] = "Employees";
+    }
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Employees</h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="fa fa-plus"></i> Create New Employee
+        </a>
+    </div>
+
+    <form asp-action="Index" method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Search by name, phone, or email" />
+            <button type="submit" class="btn btn-outline-primary"><i class="fa fa-search"></i> Search</button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().EmployeeName)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Phone)</th>
+                    <th>Department</th>
+                    <th>Photo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Department?.DepartmentName</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.PhotoImagePath))
+                    {
+                        <img src="~/uploads/photos/@item.PhotoImagePath" alt="Photo" width="60" height="60" class="rounded-circle" />
+                    }
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-action="Details" asp-route-id="@item.EmployeeId" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
+                            <a asp-action="Edit" asp-route-id="@item.EmployeeId" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.EmployeeId" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.Any())
+{
+    <div class="alert alert-info">
+        <strong>No employees found.</strong> Click "Create New Employee" to add the first one.
+    </div>
+}

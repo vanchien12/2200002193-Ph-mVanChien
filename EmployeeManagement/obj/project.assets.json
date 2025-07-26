@@ -1031,11 +1031,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\EmployeeManagement\\EmployeeManagement.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\2200002193-PhamVanChien\\EmployeeManagement\\EmployeeManagement.csproj",
       "projectName": "EmployeeManagement",
-      "projectPath": "C:\\Users\\Administrator\\EmployeeManagement\\EmployeeManagement.csproj",
+      "projectPath": "C:\\Users\\Administrator\\2200002193-PhamVanChien\\EmployeeManagement\\EmployeeManagement.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\EmployeeManagement\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\2200002193-PhamVanChien\\EmployeeManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
